@@ -131,9 +131,8 @@ exports.getCars = async (req,res) => {
         : { userId };
   
       const cars = await Car.findAll({ where: searchCondition });
-        if(cars.length==0) return res.status(404).json({ error: 'Car not found.' });
 
-        res.json(cars);
+      res.json(cars);
 
     } catch (err){
         res.status(500).json({ error: 'Error fetching cars.' });
